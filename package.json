@@ -1,0 +1,66 @@
+{
+  "name": "vigour-level",
+  "version": "0.0.1",
+  "engines": {
+    "node": "^4.1.1"
+  },
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vigour-io/level.git"
+  },
+  "keywords": [
+    "javascript",
+    "database",
+    "vigour-hub",
+    "leveldb"
+  ],
+  "author": "Vigour.io <dev@vigour.io>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vigour-io/level/issues"
+  },
+  "directories": {
+    "lib": "./lib"
+  },
+  "browser": {
+    "./lib/level/db": "./lib/level/db/browser.js"
+  },
+  "dependencies": {
+    "level-js": "2.2.3",
+    "leveldown": "1.4.3",
+    "levelup": "1.3.1",
+    "vigour-js": "~0.3.8"
+  },
+  "devDependencies": {
+    "colors-browserify": "0.1.1"
+  },
+  "homepage": "https://github.com/vigour-io/level#readme",
+  "vigour": {
+    "services": {
+      "sentinel": {
+        "branches": [],
+        "unignoreFolders": []
+      }
+    }
+  },
+  "standard": {
+    "globals": [
+      "describe",
+      "it",
+      "beforeEach",
+      "sinon",
+      "expect",
+      "xit"
+    ]
+  },
+  "gaston": {
+    "source-maps": false,
+    "less-options": {
+      "strictMath": true
+    }
+  }
+}
