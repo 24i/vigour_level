@@ -4,14 +4,29 @@ var test = require('tape')
 var Hub = require('vigour-hub')
 
 var dbName = new Date().toString()
+var hub = new Hub()
 
-test('connect with db', function (t) {
+test('connect with leveldb', function (t) {
   t.plan(1)
-  var hub = new Hub({
-    db: {
-      inject: require('../lib'),
-      name: dbName
+  hub.db = {
+    inject: require('../lib'),
+    name: dbName
+  }
+  t.ok(hub.db.integral !== undefined, 'db should now contain a levelUp object')
+})
+
+test('set to hub, write to db', function (t) {
+  t.plan(1)
+  hub.set({
+    test: {
+      a: {
+        title: 'x',
+        description: 'b'
+      },
+      b: {
+        title: 'y',
+        description: 'c'
+      }
     }
   })
-  t.ok(hub.db.integral !== undefined, 'db should now contain a levelUp object')
 })
