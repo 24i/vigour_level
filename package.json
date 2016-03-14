@@ -36,10 +36,14 @@
     "level-js": "2.2.3",
     "leveldown": "1.4.3",
     "levelup": "1.3.1",
-    "vigour-js": "~0.3.8"
+    "vigour-observable": "^1.2.0",
+    "vigour-event": "^1.1.0",
+    "vigour-util": "^1.0.1",
+    "lodash.set": "^4.0.0"
   },
   "devDependencies": {
     "colors-browserify": "0.1.1",
+    "vigour-hub": "0.0.4",
     "tape": "^4.5.1",
     "tap-difflet": "0.4.0"
   },
