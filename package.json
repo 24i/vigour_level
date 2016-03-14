@@ -6,7 +6,7 @@
   },
   "main": "lib/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node test | tap-difflet"
   },
   "repository": {
     "type": "git",
@@ -19,6 +19,9 @@
     "leveldb"
   ],
   "author": "Vigour.io <dev@vigour.io>",
+  "contributors": [
+    "Boite Witte <boite@vigour.io>"
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/vigour-io/level/issues"
@@ -36,7 +39,9 @@
     "vigour-js": "~0.3.8"
   },
   "devDependencies": {
-    "colors-browserify": "0.1.1"
+    "colors-browserify": "0.1.1",
+    "tape": "^4.5.1",
+    "tap-difflet": "0.4.0"
   },
   "homepage": "https://github.com/vigour-io/level#readme",
   "vigour": {
