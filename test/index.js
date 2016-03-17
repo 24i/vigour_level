@@ -1,32 +1,21 @@
 'use strict'
 
 var test = require('tape')
-var Hub = require('vigour-hub')
-
-var dbName = new Date().toString()
-var hub = new Hub()
+var Observable = require('vigour-observable')
+var levelup = require('levelup')
+var now = new Date()
+var dbName = 'test-' + now.getFullYear() + (now.getMonth() + 1) + now.getDate() + '-' + now.getHours() + now.getMinutes()
+var obs
 
 test('connect with leveldb', function (t) {
-  t.plan(1)
-  hub.db = {
-    inject: require('../lib'),
-    name: dbName
-  }
-  t.ok(hub.db.integral !== undefined, 'db should now contain a levelUp object')
-})
-
-test('set to hub, write to db', function (t) {
-  t.plan(1)
-  hub.set({
-    test: {
-      a: {
-        title: 'x',
-        description: 'b'
-      },
-      b: {
-        title: 'y',
-        description: 'c'
-      }
+  t.plan(2)
+  obs = new Observable({
+    db: {
+      inject: require('../lib'),
+      name: dbName
     }
   })
+  console.log(obs)
+  t.equal(obs.db.name.val, dbName, 'The database name should be set and correct')
+  t.ok(obs.db.integral instanceof levelup, 'db should now contain a levelUp object')
 })
