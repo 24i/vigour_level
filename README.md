@@ -1,6 +1,6 @@
 # level
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
-[![Build Status](https://travis-ci.org/vigour-io/level.svg?branch=master)](https://travis-ci.org/vigour-io/element)
+[![Build Status](https://travis-ci.org/vigour-io/level.svg?branch=master)](https://travis-ci.org/vigour-io/level)
 
 Saving data from hub to LevelDB
 
