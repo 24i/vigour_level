@@ -1,5 +1,4 @@
 'use strict'
-
 var test = require('tape')
 var Observable = require('vigour-observable')
 var levelup = require('levelup')
@@ -15,7 +14,6 @@ test('connect with leveldb', function (t) {
       name: dbName
     }
   })
-  console.log(obs)
   t.equal(obs.db.name.val, dbName, 'The database name should be set and correct')
   t.ok(obs.db.integral instanceof levelup, 'db should now contain a levelUp object')
 })
