@@ -34,12 +34,12 @@
   },
   "dependencies": {
     "level-js": "2.2.3",
-    "leveldown": "1.4.3",
+    "leveldown": "1.4.6",
     "levelup": "1.3.1",
     "vigour-observable": "^2.1.6",
     "vigour-event": "^1.1.3",
     "vigour-util": "^2.0.9",
-    "lodash.set": "^4.0.0"
+    "lodash.set": "^4.1.0"
   },
   "devDependencies": {
     "colors-browserify": "0.1.1",
