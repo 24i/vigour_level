@@ -15,6 +15,5 @@ test('connect with leveldb', function (t) {
     }
   })
   t.equal(obs.db.name.val, dbName, 'The database name should be set and correct')
-  console.log('obs', obs)
   t.ok(obs.db.integral instanceof levelup, 'db should now contain a levelUp object')
 })
