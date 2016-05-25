@@ -49,7 +49,8 @@
     "nightmare": "^2.2.0",
     "node-lessify": "^0.1.1",
     "tape": "^4.5.1",
-    "tap-difflet": "0.4.0"
+    "tap-difflet": "0.4.0",
+    "vigour-performance": "^1.2.3"
   },
   "homepage": "https://github.com/vigour-io/level#readme",
   "standard": {
