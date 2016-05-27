@@ -1,7 +1,7 @@
 const keys = require('../../../lib/event-source/keys')
 const test = require('vigour-performance')
 var stamp = require('vigour-stamp')
-var amount = 1e6
+var amount = 1e5
 var timestamp = (new Date()).getTime()
 
 function generateStrings () {
@@ -29,4 +29,4 @@ function parseKeys () {
 }
 
 test(generateKeys, generateStrings, 5)
-// test(parseKeys, generateKeyObject, 5)
+test(parseKeys, generateKeyObject, 5, 100)
