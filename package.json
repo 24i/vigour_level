@@ -30,7 +30,7 @@
     "lib": "./lib"
   },
   "browser": {
-    "./lib/level/db": "./lib/level/db/browser.js"
+    "./lib/level/level-db": "./lib/level/level-db/browser.js"
   },
   "dependencies": {
     "level-js": "2.2.3",
@@ -50,7 +50,8 @@
     "node-lessify": "^0.1.1",
     "tape": "^4.5.1",
     "tap-difflet": "0.4.0",
-    "vigour-performance": "^1.2.3"
+    "vigour-performance": "^1.2.3",
+    "lodash": "^4.13.1"
   },
   "homepage": "https://github.com/vigour-io/level#readme",
   "standard": {
