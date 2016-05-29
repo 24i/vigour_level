@@ -2,40 +2,9 @@
 
 const _ = require('lodash')
 const test = require('tape')
+var generate = require('./utils/generate-object')
 
-const max = 100 + Math.round(Math.random() * 1000)
-
-const keyOptions = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'foo', 'bar', 'fiz']
-const stampOptions = ['', 'click-', 'mac|', 'select-', 'mac|select-', 'linux|', 'linux|click-']
-
-var generate = function () {
-  var returnVal = {
-    baseKeyDepths: {},
-    events: [],
-    res: {}
-  }
-  var i
-  var key
-  for (i = 0; i < keyOptions.length; i++) {
-    returnVal.baseKeyDepths[keyOptions[i]] = 1 + Math.round(Math.random() * 9)
-  }
-  for (i = 0; i < max; i++) {
-    var baseKey = keyOptions[Math.round(Math.random() * (keyOptions.length - 1))]
-    var keyDepth = returnVal.baseKeyDepths[baseKey] || 0
-    key = ''
-    for (var k = 0; k < keyDepth; k++) {
-      if (k !== 0) {
-        key += '.'
-      }
-      key += keyOptions[Math.round(Math.random() * (keyOptions.length - 1))]
-    }
-    var stamp = stampOptions[Math.round(Math.random() * (stampOptions.length - 1))]
-    stamp = (stamp) ? stamp + i : i
-    returnVal.events.push({key: key, val: '' + i, stamp: stamp})
-    _.set(returnVal.res, key, i)
-  }
-  return returnVal
-}
+const max = 2048
 
 var dbCallback = function (operation, callback) {
   return function (e) {
@@ -109,7 +78,7 @@ var checkTest = {
 module.exports = function (db) {
   test('Event LevelDB - put', {timeout: max * 10}, function (t) {
     t.plan(3)
-    var data = generate()
+    var data = generate(max)
     for (var i = 0; i < max; i++) {
       var event = data.events[i]
       var callback = false
