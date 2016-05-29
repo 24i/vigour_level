@@ -46,12 +46,13 @@
     "colors-browserify": "0.1.1",
     "coveralls": "^2.11.9",
     "istanbul": "^0.4.3",
+    "lodash": "^4.13.1",
     "nightmare": "^2.2.0",
     "node-lessify": "^0.1.1",
-    "tape": "^4.5.1",
     "tap-difflet": "0.4.0",
+    "tape": "^4.5.1",
     "vigour-performance": "^1.2.3",
-    "lodash": "^4.13.1"
+    "vigour-test": "^1.0.5"
   },
   "homepage": "https://github.com/vigour-io/level#readme",
   "standard": {
