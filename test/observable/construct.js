@@ -3,7 +3,7 @@
 const test = require('tape')
 const Observable = require('vigour-observable')
 const levelup = require('levelup')
-const destroyAllDbs = require('./utils/destroy-dbs')
+const destroyAllDbs = require('../utils/destroy-dbs')
 const now = new Date()
 const dbName = 'test-' + now.getFullYear() + (now.getMonth() + 1) + now.getDate() + '-' + now.getHours() + now.getMinutes()
 var obs
@@ -12,7 +12,7 @@ test('connect with leveldb', function (t) {
   t.plan(4)
   obs = new Observable({
     db: {
-      inject: require('../lib'),
+      inject: require('../../lib'),
       name: dbName
     }
   })
