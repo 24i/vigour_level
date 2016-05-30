@@ -7,7 +7,7 @@ const dbName = 'test-event'
 var db = new eventdb.Construct(dbName, period)
 var allTheOperationsDone = {
   operations: {},
-  callback: false,
+  callback: [],
   callbackExecuted: false,
   registerOperations: function (operations) {
     for (var i = 0, max = operations.length; i < max; i++) {
@@ -17,18 +17,22 @@ var allTheOperationsDone = {
   operationDone: function (operation) {
     allTheOperationsDone.operations[operation] = true
     var allIsDone = true
-    for (var i = 0, max = allTheOperationsDone.operations.length; i < max; i++) {
+    var i
+    var max
+    for (i = 0, max = allTheOperationsDone.operations.length; i < max; i++) {
       if (allTheOperationsDone.operations[i] === false) {
         allIsDone = false
       }
     }
     if (allIsDone && allTheOperationsDone.callback && !allTheOperationsDone.callbackExecuted) {
       allTheOperationsDone.callbackExecuted = true
-      allTheOperationsDone.callback()
+      for (i = 0, max = allTheOperationsDone.callback.length; i < max; i++) {
+        allTheOperationsDone.callback[i]()
+      }
     }
   },
   registerCallback: function (callback) {
-    allTheOperationsDone.callback = callback
+    allTheOperationsDone.callback.push(callback)
   }
 }
 

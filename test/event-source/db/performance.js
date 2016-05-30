@@ -2,7 +2,7 @@
 
 const _ = require('lodash')
 const test = require('vigour-performance')
-const amount = 2.7e4
+const amount = 5e4
 const generateData = require('./utils/generate-object')
 
 module.exports = function (db, operationsListener) {
@@ -21,6 +21,6 @@ module.exports = function (db, operationsListener) {
     }
   }
   operationsListener.registerCallback(function putPerformance () {
-    test(putData, setData, 30, 30)
+    test(putData, setData, 15)
   })
 }
