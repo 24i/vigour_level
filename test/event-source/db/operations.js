@@ -30,9 +30,9 @@ var successCount = {
 }
 
 var checkTest = {
-  put: function (t, db, data) {
+  put: function (t, db, data, operationListener) {
     t.test('Event LevelDB - put - retrieve events', function (ts) {
-      var r = db.dbs.current.db.createReadStream()
+      var r = db.createEventStream()
       var amountSucceeded = 0
       r.on('data', function currentOnData (data) {
         if (!data.key) {
@@ -54,12 +54,13 @@ var checkTest = {
       })
       r.on('end', function onEnd () {
         ts.equal(amountSucceeded, data.events.length, 'all events should be written to db')
+        operationListener.operationDone('put-events')
         ts.end()
       })
     })
     t.test('Event LevelDB - put - retrieve dataResult', function (ts) {
       var res = {}
-      var r = db.dbs.data.db.createReadStream()
+      var r = db.createReadStream()
 
       r.on('data', function dataOnData (data) {
         if (!data.key) {
@@ -69,13 +70,15 @@ var checkTest = {
       })
       r.on('end', function dataOnEnd () {
         ts.deepEqual(res, data.res, 'db end result should be the same as set data')
+        operationListener.operationDone('put-data')
         ts.end()
       })
     })
   }
 }
 
-module.exports = function (db) {
+module.exports = function (db, allTheOperationsListener) {
+  allTheOperationsListener.registerOperations(['put-events', 'put-data'])
   test('Event LevelDB - put', {timeout: max * 10}, function (t) {
     t.plan(3)
     var data = generate(max)
@@ -86,7 +89,7 @@ module.exports = function (db) {
         callback = function (successes) {
           t.ok(successes === max, 'all ' + max + ' put operations should be executed')
           if (checkTest.put) {
-            checkTest.put(t, db, data)
+            checkTest.put(t, db, data, allTheOperationsListener)
           }
         }
       }

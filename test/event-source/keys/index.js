@@ -2,7 +2,7 @@
 
 require('./generate')
 require('./parse')
-// require('./performance')
+require('./performance')
 
 // 1200571.2
 // 1000198.1
