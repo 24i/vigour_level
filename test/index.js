@@ -1,4 +1,4 @@
 'use strict'
 
-// require('./construct')
-require('./event-source')
+require('./construct')
+// require('./event-source')
