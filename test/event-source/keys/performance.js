@@ -9,9 +9,9 @@ function generateStrings () {
   }
 }
 
-function generateKeys () {
+function generateEventKeys () {
   for (var i = 0; i < amount; i++) {
-    keys.generate(i, 'a.b')
+    keys.events.generate(i, 'a.b')
   }
 }
 
@@ -21,11 +21,11 @@ function generateKeyObject () {
   }
 }
 
-function parseKeys () {
+function parseEventKeys () {
   for (var i = 0; i < amount; i++) {
-    keys.parse('click-' + i + '.a.b.c')
+    keys.events.parse('click-' + i + '.a.b.c')
   }
 }
 
-test(generateKeys, generateStrings, 5)
-test(parseKeys, generateKeyObject, 5)
+test(generateEventKeys, generateStrings, 5)
+test(parseEventKeys, generateKeyObject, 5)

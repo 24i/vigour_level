@@ -69,7 +69,7 @@ var checkTest = {
         _.set(res, data.key, parseInt(data.value))
       })
       r.on('end', function dataOnEnd () {
-        ts.deepEqual(res, data.res, 'db end result should be the same as set data')
+        ts.deepEqual(res, {'$ROOT': data.res}, 'db end result should be the same as set data')
         operationListener.operationDone('put-data')
         ts.end()
       })
