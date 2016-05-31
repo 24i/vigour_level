@@ -6,9 +6,6 @@ var obs = new Observable({
   db: {
     inject: require('../../lib'),
     name: dbName
-  },
-  a: {
-    test: true
   }
 })
 require('./on-finish-test')(obs, dbName)

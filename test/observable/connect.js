@@ -1,9 +1,7 @@
 'use strict'
 
 const test = require('tape')
-
 const levelup = require('levelup')
-const destroyAllDbs = require('../utils/destroy-dbs')
 
 module.exports = function constructTest (obs, dbName) {
   test('connect with leveldb', function (t) {
