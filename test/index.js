@@ -1,4 +1,4 @@
 'use strict'
 
-// require('./observable')
-require('./event-source')
+require('./observable')
+// require('./event-source')
