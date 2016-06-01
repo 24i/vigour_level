@@ -22,6 +22,7 @@ var obs = new Observable({
 ### name (required)
 
 Name of the database. After setting the name, the database will be instantiated immediately.
+
 _Note: Name should be set last of all your other properties_
 
 ### period
