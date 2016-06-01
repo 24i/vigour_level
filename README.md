@@ -33,6 +33,7 @@ Possibilities:
 | `P4D` | Period is four Days |
 
 Combinations are also possible, the order of defining is important thought (Year, Month, Week, Day)
+
 For example:
 
 - `P2Y2M` - Period of two years and two months
