@@ -19,6 +19,11 @@ var obs = new Observable({
 
 ## Properties
 
+### name (required)
+
+Name of the database. After setting the name, the database will be instantiated immediately.
+_Note: Name should be set last of all your other properties_
+
 ### period
 
 Defines the period for the event databases following [ISO-8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations) standards.
