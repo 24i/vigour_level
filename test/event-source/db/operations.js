@@ -51,7 +51,7 @@ var checkTest = {
             }) >= 0) {
           amountSucceeded++
         } else {
-          console.log('Failed', key)
+          console.error('Failed', key)
         }
       })
       r.on('end', function onEnd () {
