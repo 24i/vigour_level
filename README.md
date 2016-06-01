@@ -24,6 +24,7 @@ var obs = new Observable({
 Defines the period for the event databases following [ISO-8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations) standards.
 
 Possibilities:
+
 | notation | result |
 | -------- | ------ |
 | `P1Y` | Period is one Year |
