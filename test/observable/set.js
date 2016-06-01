@@ -1,6 +1,7 @@
 'use strict'
 const test = require('tape')
 const vstamp = require('vigour-stamp')
+const allIsDone = require('./utils/all-is-done')
 var executed = {
   queue: {
     event: false,
@@ -49,7 +50,7 @@ module.exports = function observableSetTest (obs, dbName, allDoneCB) {
           t.equal(key, stamp + '.$ROOT.c', 'event key should be stamp + base + key')
           t.equal(value, setBaseData.c, 'value should be same as set data')
           executed.base.event = true
-          allIsDone(executed.base, testDeepSet)
+          allIsDone(executed.deep, testDeepSet)
         }
       })
       obs.db.integral._getDb('data').on('put', function (key, value) {
@@ -72,7 +73,7 @@ module.exports = function observableSetTest (obs, dbName, allDoneCB) {
         if (executed.deep.event === false) {
           t.equal(key, stamp + '.$ROOT.a.d', 'event key should be stamp + base + key')
           t.equal(value, setDeepData.d, 'value should be same as set data')
-          executed.base.event = true
+          executed.deep.event = true
           allIsDone(executed.deep, allDoneCB)
         }
       })
@@ -80,24 +81,11 @@ module.exports = function observableSetTest (obs, dbName, allDoneCB) {
         if (executed.deep.data === false) {
           t.equal(key, '$ROOT.a.d')
           t.deepEqual(value, setDeepData.d, 'value should be same as set data')
-          executed.base.data = true
+          executed.deep.data = true
           allIsDone(executed.deep, allDoneCB)
         }
       })
       obs.a.set(setDeepData, stamp)
     })
-  }
-}
-
-function allIsDone (check, callback) {
-  var keys = Object.keys(check)
-  var allDone = true
-  for (var i = 0, max = keys.length; i < max; i++) {
-    if (check[keys[i]] === false) {
-      allDone = false
-    }
-  }
-  if (allDone) {
-    callback()
   }
 }

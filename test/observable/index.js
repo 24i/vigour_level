@@ -8,6 +8,10 @@ var obs = new Observable({
     name: dbName
   }
 })
+console.log('OBS', obs)
 require('./on-finish-test')(obs, dbName)
-require('./connect')(obs, dbName)
-require('./set')(obs, dbName)
+// require('./connect')(obs, dbName)
+// require('./set')(obs, dbName, function () {
+//   console.log('Set Done - do ReadStream')
+//   require('./read-stream')(obs, dbName)
+// })
