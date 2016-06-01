@@ -37,8 +37,8 @@ test('parse event keys', function parseEventKeys (t) {
 test('parse data keys', function parseDataKeys (t) {
   t.plan(4)
   t.deepEqual(keys.data.parse('$ROOT'), {base: 'root'}, 'key containing $BASE should return just base')
-  t.deepEqual(keys.data.parse('$ROOT.a.b'), {base: 'root', key: 'a.b'}, 'key containing base and key should return base and key')
-  t.deepEqual(keys.data.parse('$ROOT.1456|a.b.c'), {base: 'root', scope: '1456', key: 'a.b.c'}, 'key containing base scope and key should return object with all')
+  t.deepEqual(keys.data.parse('$ROOT.a.b'), {base: 'root', key: 'a.b', keyEl: ['a', 'b']}, 'key containing base and key should return base and key')
+  t.deepEqual(keys.data.parse('$ROOT.1456|a.b.c'), {base: 'root', scope: '1456', key: 'a.b.c', keyEl: ['a', 'b', 'c']}, 'key containing base scope and key should return object with all')
   t.deepEqual(keys.data.parse('$BASE.1234|'), {base: 'base', scope: '1234'}, 'key containing base and scope should return object with base and scope')
   t.end()
 })

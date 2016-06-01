@@ -50,6 +50,8 @@ var checkTest = {
               return false
             }) >= 0) {
           amountSucceeded++
+        } else {
+          console.log('Failed', key)
         }
       })
       r.on('end', function onEnd () {
@@ -66,10 +68,11 @@ var checkTest = {
         if (!data.key) {
           return
         }
-        _.set(res, data.key, parseInt(data.value))
+        var setValue = JSON.parse(data.value)
+        _.set(res, data.key, parseInt(setValue.val))
       })
       r.on('end', function dataOnEnd () {
-        ts.deepEqual(res, {'$ROOT': data.res}, 'db end result should be the same as set data')
+        ts.deepEqual(res, data.res, 'db end result should be the same as set data')
         operationListener.operationDone('put-data')
         ts.end()
       })

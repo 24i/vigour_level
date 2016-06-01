@@ -6,7 +6,7 @@
   },
   "main": "lib/index.js",
   "scripts": {
-    "test": "NODE_ENV=test node test | tap-difflet && vtest test | tap-difflet",
+    "test": "NODE_ENV=test node test | tap-difflet",
     "refactor": "NODE_ENV=test node refactor/index.js | tap-difflet",
     "inspect": "NODE_ENV=test node-debug ./test/index.js"
   },
