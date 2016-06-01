@@ -27,9 +27,11 @@ var destroyDb = function (dbType, desDb) {
 }
 
 module.exports = function destroyAllDbs (db) {
-  var dbs = Object.keys(db.dbStack)
-  for (var i = 0, max = dbs.length; i < max; i++) {
-    var dbType = dbs[i]
-    destroyDb(dbType, db.dbStack[dbType])
+  if (db && db.dbStack) {
+    var dbs = Object.keys(db.dbStack)
+    for (var i = 0, max = dbs.length; i < max; i++) {
+      var dbType = dbs[i]
+      destroyDb(dbType, db.dbStack[dbType])
+    }
   }
 }
